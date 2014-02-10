@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Reset */
+html, body { margin: 0; padding: 0; background: transparent; font-size:16px; }
+
+ul				{ padding: 0px; }
+ul li 			{ list-style: none; margin: 0px; padding: 0px; display:inline; font-size:16px; }
+ul li button	{ padding: 3px 3px; margin: 3px 3px; }
+ul li img		{ padding: 3px 3px; margin: 3px 3px; }
+
+body 	{margin: 10px 10px; text-align:left;}
+body div {margin: 0px;}
+
+#nav_imgs ul li img 			{ width:50px; height:50px; }
+#content 			 			{ float:left; margin: 0px auto; width:850px; }
+#content #big_image				{ float:left; width:500px; }
+#content #img_info				{ float:right; width:300px; }
+#img_info p						{ font-size:20px; font-weight: bold; }

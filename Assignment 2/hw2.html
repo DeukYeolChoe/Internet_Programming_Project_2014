@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />   
+	<title>Internet Programming Assignment 2</title>
+    
+    <script type="text/javascript">
+		var img_array = new Array("building_images/armory.jpg",
+									"building_images/pillsbury.jpg",
+									"building_images/folwell.jpg",
+									"building_images/jones.jpg",
+									"building_images/statue.jpg",
+									"building_images/wesbrook.jpg",
+									"building_images/nicholson.jpg",
+									"building_images/eddy.jpg",
+									"building_images/music.jpg",
+									"building_images/wulling.jpg");
+		
+		var img_navi = new Array("nav0_img",
+									"nav1_img",
+									"nav2_img",
+									"nav3_img",
+									"nav4_img",
+									"nav5_img",
+									"nav6_img",
+									"nav7_img",
+									"nav8_img",
+									"nav9_img");
+		var building_names = new Array("Building: Armory Hall",
+										"Building: Pillsbury Hall",
+										"Building: Folwell Hall",
+										"Building: Jones Hall",
+										"Building: Pillsbury Status",
+										"Building: Wesbrook Hall",
+										"Building: Nicholson Hall",
+										"Building: Eddy Hall",
+										"Building: Music Hall",
+										"Building: Wulling Hall");
+																			
+		var building_architect = new Array("Architect: Charles Aldrich",
+										"Architect: Leroy Buffington with Harvey Ellis",
+										"Architect: Clarence H. Johnston, Sr.",
+										"Architect: Charles Aldrich",
+										"Architect: Daniel C. French, sculptor",
+										"Architect: Frederick Corser",
+										"Architect: LeRoy Buffington with Harvey Ellis",
+										"Architect: LeRoy Buffington",
+										"Architect: Warren H. Hayes",
+										"Architect: Allen Stem and Charles Reed");
+										
+		var building_years = new Array("Year: 1896",
+										"Year: 1889",
+										"Year: 1907",
+										"Year: 1901",
+										"Year: 1900",
+										"Year: 1898",
+										"Year: 1890",
+										"Year: 1886",
+										"Year: 1888",
+										"Year: 1892");
+										
+		var building_info = new Array("Information: Built for athletics and military drill, as well as performing arts and social activities. Memorial plaques at the front entrance honor students, faculty, and alumni who fought in the Spanish-American War.",
+										"Information: Built as Science Hall. Named for Governor John S. Pillsbury.",
+										"Information: When Old Main burned in 1904, Folwell Hall was built to house displaced departments. Named for William Watts Folwell, first president of the University, 1869-84.",
+										"Information: Built as Physics Building. Named for Frederick S. Jones, professor of physics and dean of the College of Engineering.",
+										"Information: Pillsbury statue located across the street from Burton Hall.",
+										"Information: Built as Laboratory of Medical Science. In 1912, dentistry moved here. Named for Frank Wesbrook, professor of pathology and bacteriology and dean of the College of Medicine and Surgery.",
+										"Information: Built as chemical laboratory. In 1914, chemistry moved to the mall area and Nicholson was remodeled for the men's union until Coffman Memorial Union was built as a coed student union. Named for Edward E. Nicholson, professor of chemistry and later dean of Student Affairs.",
+										"Information: Built as Mechanic Arts. It is the oldest existing building on campus. Named for Henry Turner Eddy, professor of engineering and mathematics and dean of the Graduate School.",
+										"Information: Built as Student Christian Association building. Acquired by the University, it housed Child Welfare and Music Education.",
+										"Information: Built as Medical Hall; named Millard Hall in 1906. Fire damaged the building. It later became the site for the pharmacy building. Named for Frederick J. Wulling, first dean and founder of the College of Pharmacy.");	
+		var index = 0;
+		var pre_index = 0;
+		var active_slide = false;
+		
+		function selection(){
+			var selectedItem = document.getElementById("select_item");
+			var selectedValue = selectedItem.options[selectedItem.selectedIndex].value;
+			document.getElementById(img_navi[pre_index]).style.borderColor = "none";
+			document.getElementById(img_navi[pre_index]).style.borderStyle = "none";	
+			document.getElementById("selected_img").src = img_array[selectedValue];
+			document.getElementById(img_navi[selectedValue]).style.borderColor = "red";
+			document.getElementById(img_navi[selectedValue]).style.borderStyle = "solid";	
+			pre_index = selectedValue;
+			index = selectedValue;
+			show_building_info();
+		}
+		
+		function select_nav_image(i){
+			document.getElementById(img_navi[pre_index]).style.borderColor = "none";
+			document.getElementById(img_navi[pre_index]).style.borderStyle = "none";
+			document.getElementById("selected_img").src = img_array[i];
+			document.getElementById(img_navi[i]).style.borderColor = "red";
+			document.getElementById(img_navi[i]).style.borderStyle = "solid";		
+			pre_index=i;
+			index=i;
+			show_building_info();
+		}
+		
+		function click_start(){
+			document.getElementById(img_navi[pre_index]).style.borderColor = "none";
+			document.getElementById(img_navi[pre_index]).style.borderStyle = "none";			
+			index = 0;
+			document.getElementById("selected_img").src = img_array[index];
+			document.getElementById(img_navi[index]).style.borderColor = "red";
+			document.getElementById(img_navi[index]).style.borderStyle = "solid";
+			pre_index=index;
+			show_building_info();
+		}
+		
+		function click_next(){
+			document.getElementById(img_navi[pre_index]).style.borderColor = "none";
+			document.getElementById(img_navi[pre_index]).style.borderStyle = "none";
+			if(index++ == 9)
+				index = 0;
+			document.getElementById("selected_img").src = img_array[index];
+			document.getElementById(img_navi[index]).style.borderColor = "red";
+			document.getElementById(img_navi[index]).style.borderStyle = "solid";
+			pre_index=index;
+			show_building_info();
+		}
+		
+		function click_previous(){
+			document.getElementById(img_navi[pre_index]).style.borderColor = "none";
+			document.getElementById(img_navi[pre_index]).style.borderStyle = "none";		
+			if(index-- == 0)
+				index = 9;
+			document.getElementById("selected_img").src = img_array[index];
+			document.getElementById(img_navi[index]).style.borderColor = "red";
+			document.getElementById(img_navi[index]).style.borderStyle = "solid";
+			pre_index=index;	
+			show_building_info();		
+		}
+		
+		function click_information(){
+			usable_building_info = true;
+			document.getElementById("Building_name").innerHTML = building_names[index];
+			document.getElementById("Building_architect").innerHTML = building_architect[index];
+			document.getElementById("Building_year").innerHTML = building_years[index];
+			document.getElementById("Building_info").innerHTML = building_info[index];
+		}
+		
+		var check_interval;
+		function start_slide(){
+			if(active_slide == false ){
+				active_slide = true;
+				if(index == 0)
+					click_start();
+				check_interval = setInterval("click_next()", 1000);
+			} else {
+				alert("You can't run a new slide show because previous slide is still running");
+			}
+		}
+
+		function stop_slide(){
+			clearInterval(check_interval);
+			active_slide = false;
+		}
+		
+		function show_building_info(){
+			document.getElementById("Building_info").innerHTML = "";
+			document.getElementById("Building_name").innerHTML = building_names[index];
+			document.getElementById("Building_architect").innerHTML = building_architect[index];
+			document.getElementById("Building_year").innerHTML = building_years[index];
+		}
+	</script>
+</head>
+
+<body>
+	<div id = "nav"> 
+   		<ul>
+        	<li> <button id="Start" name="Start_button" width="300" onClick="click_start()">  Start </button> </li>
+            <li> <button id="Next" name="Next_button" width="300" onClick="click_next()">  Next </button> </li>
+            <li> <button id="Previous" name="Pre_button" width="400" onClick="click_previous()">  Previous </button> </li>
+            <li> <button id="Display Information" name="Display_button" width="500" onClick="click_information()">  Display Information </button> </li>
+        </ul>
+    </div>
+    <p> Select Information Type :              
+         <select id = "select_item" onchange="selection()">
+         	<option value="-1"> None </option>
+            <option value="0"> Armory </option>
+            <option value="1"> Pillsbury Hall </option>
+            <option value="2"> Folwell Hall </option>
+            <option value="3"> Jones Hall </option>
+            <option value="4"> Pillsbury Statue </option>
+            <option value="5"> Wesbrook Hall </option>
+            <option value="6"> Nicholson Hall </option>
+            <option value="7"> Eddy Hall </option>
+            <option value="8"> Music Education </option>
+            <option value="9"> Wulling Hall </option>
+        </select>  
+    </p>
+    <div id="nav_imgs">
+    	<ul>
+        	<li> <img src="building_images/armory.jpg" alt="Armory image" id="nav0_img" onClick="select_nav_image(0)" />  </li>
+        	<li> <img src="building_images/pillsbury.jpg" alt="Pillsbury image" id="nav1_img" onClick="select_nav_image(1)" /> </li>
+            <li> <img src="building_images/folwell.jpg" alt="Folwell" id="nav2_img" onClick="select_nav_image(2)" /> </li>    
+            <li> <img src="building_images/jones.jpg" alt="Jones" id="nav3_img" onClick="select_nav_image(3)" /> </li>    
+            <li> <img src="building_images/statue.jpg" alt="Statue" id="nav4_img" onClick="select_nav_image(4)" /> </li>
+            <li> <img src="building_images/wesbrook.jpg" alt="Wesbrook" id="nav5_img" onClick="select_nav_image(5)" /> </li>
+            <li> <img src="building_images/nicholson.jpg" alt="Nicholson" id="nav6_img" onClick="select_nav_image(6)" /> </li>
+            <li> <img src="building_images/eddy.jpg" alt="Eddy" id="nav7_img" onClick="select_nav_image(7)" /> </li>
+            <li> <img src="building_images/music.jpg" alt="Music" id="nav8_img" onClick="select_nav_image(8)" /> </li>
+            <li> <img src="building_images/wulling.jpg" alt="Wulling" id="nav9_img" onClick="select_nav_image(9)" /> </li>        
+        </ul>
+    </div>
+   <hr /> 
+   <div id="slideshow">
+   		<ul>
+    		<li> <button id="Start_Slide" name="Start_Slide" width="500" onclick="start_slide()">  Start Slide Show </button> </li>
+    		<li> <button id="Stop_Slide" name="Stop_Slide" width="500" onclick="stop_slide()">  Stop Slide Show </button> </li>            
+   		</ul>
+   </div>
+   <div id="content">
+   		<div id="big_image">
+        	<img id="selected_img" src= "select_img" width="500" height="300" alt="A selected image"/> 
+        </div> 
+ 		<div id="img_info">
+        	<p> Display Information: </p>
+            <p id="Building_name"> </p>
+            <p id="Building_architect"> </p>
+            <p id="Building_year"> </p>
+            <p id="Building_info"> </p>
+        </div>
+   </div> 
+</body>
+</html>

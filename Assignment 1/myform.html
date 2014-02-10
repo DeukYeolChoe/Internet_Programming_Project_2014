@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="styles.css" rel="stylesheet" type="text/css" media="screen" />   
+<title>My Profile</title>
+</head>
+
+<body>
+    <h1> My Profile </h1>
+    <hr />
+    <nav> 
+        <a href="mycalendar.html"> Calender </a>      
+        <a href="myform.html"> Profile Form </a> 
+    </nav>
+	<hr />
+
+    <div id="gopher">
+        <img src="gopher.png" alt="gopher image" />
+    </div>
+    <div id="info">
+		<ul>
+        	<li> First name:</li>
+        	<li> <input type="text" name="firstname" /> </li>
+        	<li> Last name:</li>
+        	<li> <input type="text" name="lastname" /> </li>
+            <li> Email:</li>
+        	<li> <input type="email" name="email" /> </li>
+            <li> Phone:</li>  
+       		<li> <input type="tel" name="phone" pattern= "\d{3}-\d{4}-\d{4}" required/> </li>    
+       	 	<li> Gender:
+                <select>
+                    <option value="male"> Male </option>
+                    <option value="female"> Female </option>
+                </select>  
+            </li>
+            <li> Birthday: </li> 
+            <li> <input type="date" name="bday" /> </li>
+            <li> <input type="submit" name="submit" /> </li>
+        </ul>
+     </div>
+</body>
+</html>

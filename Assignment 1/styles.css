@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* table attributes */
+table					{
+	background:#FC9;
+	text-align:center;
+	width: 700px;
+	font-size:14px;
+	margin: 0px auto;
+}
+thead					{ font-weight: bold; font-size:20px;  }
+table tr.tbody td		{ border: 2px solid black; } 
+table tr td				{ padding: 10px 10px; }
+
+
+h1 		{ color:#FC0; font-size: 20px; font-weight: bold; text-align:center; }
+
+hr 		{ width: 300px;  margin: 15px auto; }
+
+p		{ width: 200px;  margin: 15px auto; font-size: 16px;}
+
+ol, ul 	{ list-style: none; margin:0px; padding: 0px; font-size:16px; vertical-align:middle; }
+
+input 	{ width: 250px; }
+
+nav		{ text-align:center; padding: 0px 20px; }
+nav a	{ margin: 0px 10px;}
+
+/* id items and classes atrributes */
+.time 	{ color:#FFF; font-style:italic;}
+#info	{ margin: 15px auto; width: 300px;}
+#gopher	{ margin: 15px auto; width: 400px; }
